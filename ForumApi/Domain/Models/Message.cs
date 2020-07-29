@@ -11,9 +11,9 @@ namespace ForumApi.Domain.Models
         public string Content{get;set;}
         public int Status_Id{get;set;}
         public Status Status{get;set;}
-        public User Senders{get;set;}
+        public User Sender{get;set;}
         //public User Senders{get;set;}
-        public User Receivers{get;set;}
+        public User Receiver{get;set;}
         //public User Receivers{get;set;}
     }
 }
