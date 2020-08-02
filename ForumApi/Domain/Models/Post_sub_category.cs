@@ -6,7 +6,7 @@ namespace ForumApi.Domain.Models
     {
         public int Post_Id{get;set;}
         public int Sub_Category_Id{get;set;}
-        public Post Posts{get;set;}
+        public Post Post{get;set;}
         public Sub_category Sub_Categories{get;set;}
     }
 }
