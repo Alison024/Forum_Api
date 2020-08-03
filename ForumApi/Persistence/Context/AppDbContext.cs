@@ -26,7 +26,7 @@ namespace ForumApi.Persistence.Context
             builder.Entity<Avatar_image>().ToTable("Avatar_images");
             builder.Entity<Avatar_image>().HasKey(x=>x.Id);
             builder.Entity<Avatar_image>().Property(x=>x.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Avatar_image>().Property(x=>x.File_name).IsRequired();
+            builder.Entity<Avatar_image>().Property(x=>x.File_Name).IsRequired();
             builder.Entity<Avatar_image>().HasMany(x=>x.Users).WithOne(x=>x.Avatar_Image);
             
             builder.Entity<Category>().ToTable("Categories");
@@ -40,28 +40,27 @@ namespace ForumApi.Persistence.Context
             builder.Entity<Message>().ToTable("Messages");
             builder.Entity<Message>().HasKey(x=>x.Id);
             builder.Entity<Message>().Property(x=>x.Id).IsRequired().ValueGeneratedOnAdd();
-            /*builder.Entity<Message>().Property(x=>x.Sender_Id);
-            builder.Entity<Message>().Property(x=>x.Receiver_Id);*/
+            //builder.Entity<Message>().Property(x=>x.Sender_Id).IsRequired();
+            //builder.Entity<Message>().Property(x=>x.Receiver_Id);
             builder.Entity<Message>().Property(x=>x.Send_Time).IsRequired();
-            builder.Entity<Message>().Property(x=>x.Content).IsRequired();
+            builder.Entity<Message>().Property(x=>x.Message_Content).IsRequired();
             builder.Entity<Message>().Property(x=>x.Status_Id).IsRequired();
             builder.Entity<Message>().HasOne(x=>x.Status).WithMany(x=>x.Messages).HasForeignKey(x=>x.Status_Id);
-            builder.Entity<Message>().HasOne(x=>x.Sender).WithMany(z=>z.Sended_Messages).HasForeignKey(x=>x.Sender_Id).OnDelete(DeleteBehavior.NoAction);//нужно разобратся с удалением
-            builder.Entity<Message>().HasOne(x=>x.Receiver).WithMany(z=>z.Received_Messages).HasForeignKey(x=>x.Receiver_Id).OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Message>().HasOne(x=>x.Sender).WithMany(z=>z.Sended_Messages).HasForeignKey(x=>x.Sender_Id).OnDelete(DeleteBehavior.Restrict);//нужно разобратся с удалением
+            builder.Entity<Message>().HasOne(x=>x.Receiver).WithMany(z=>z.Received_Messages).HasForeignKey(x=>x.Receiver_Id).OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Post>().ToTable("Posts");
             builder.Entity<Post>().HasKey(x=>x.Id);
             builder.Entity<Post>().Property(x=>x.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Post>().Property(x=>x.Author_Id).IsRequired();
-            //builder.Entity<Post>().Property(x=>x.Paren_Post_Id).IsRequired();
+            builder.Entity<Post>().Property(x=>x.Paren_Post_Id).HasDefaultValue(-1);
             builder.Entity<Post>().Property(x=>x.Post_Type_Id).IsRequired();
             builder.Entity<Post>().Property(x=>x.Title).IsRequired();
-            builder.Entity<Post>().Property(x=>x.Content).IsRequired();
+            builder.Entity<Post>().Property(x=>x.Post_Content).IsRequired();
             builder.Entity<Post>().Property(x=>x.Date).IsRequired();
             builder.Entity<Post>().Property(x=>x.Post_Rate).IsRequired();
             builder.Entity<Post>().HasOne(x=>x.Author).WithMany(x=>x.Posts).HasForeignKey(x=>x.Author_Id);
-            builder.Entity<Post>().HasOne(x=>x.Parent_Post).WithMany(x=>x.Children_Posts).HasForeignKey(x=>x.Paren_Post_Id).OnDelete(DeleteBehavior.SetNull);/*Не удалось создать внешний ключ "FK_Posts_Posts_Paren_Post_Id" со ссылочным действием SET NULL, поскольку один 
-            или несколько ссылающихся столбцов не допускают значения NULL.*/
+            builder.Entity<Post>().HasOne(x=>x.Parent_Post).WithMany(x=>x.Children_Posts).HasForeignKey(x=>x.Paren_Post_Id).OnDelete(DeleteBehavior.Restrict);/*Не удалось создать внешний ключ "FK_Posts_Posts_Paren_Post_Id" со ссылочным действием SET NULL, поскольку один или несколько ссылающихся столбцов не допускают значения NULL.*/
             builder.Entity<Post>().HasOne(x=>x.Post_Type).WithMany(x=>x.Posts).HasForeignKey(x=>x.Post_Type_Id);
             builder.Entity<Post>().HasMany(x=>x.Post_Images).WithOne(x=>x.Post);
             builder.Entity<Post>().HasMany(x=>x.Post_Sub_Categories).WithOne(x=>x.Post);
@@ -132,12 +131,11 @@ namespace ForumApi.Persistence.Context
             builder.Entity<User_info>().HasOne(x=>x.User).WithOne(x=>x.User_Info);
 
             builder.Entity<User_role>().ToTable("User_roles");
-            builder.Entity<User_role>().HasKey(x=> new {x.User_id,x.Role_id});
-            builder.Entity<User_role>().Property(x=>x.User_id).IsRequired();
-            builder.Entity<User_role>().Property(x=>x.Role_id).IsRequired();
-            builder.Entity<User_role>().Property(x=>x.User_id).IsRequired();
-            builder.Entity<User_role>().HasOne(x=>x.User).WithMany(x=>x.User_Roles).HasForeignKey(x=>x.User_id);
-            builder.Entity<User_role>().HasOne(x=>x.Role).WithMany(x=>x.User_Roles).HasForeignKey(x=>x.Role_id);
+            builder.Entity<User_role>().HasKey(x=> new {x.User_Id,x.Role_Id});
+            builder.Entity<User_role>().Property(x=>x.User_Id).IsRequired();
+            builder.Entity<User_role>().Property(x=>x.Role_Id).IsRequired();
+            builder.Entity<User_role>().HasOne(x=>x.User).WithMany(x=>x.User_Roles).HasForeignKey(x=>x.User_Id);
+            builder.Entity<User_role>().HasOne(x=>x.Role).WithMany(x=>x.User_Roles).HasForeignKey(x=>x.Role_Id);
         }
     }
 }

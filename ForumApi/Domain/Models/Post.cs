@@ -9,7 +9,7 @@ namespace ForumApi.Domain.Models
         public int Paren_Post_Id{get;set;}
         public int Post_Type_Id{get;set;}
         public string Title{get;set;}
-        public string Content{get;set;}
+        public string Post_Content{get;set;}
         public DateTime Date{get;set;}
         public int Post_Rate{get;set;}
 
