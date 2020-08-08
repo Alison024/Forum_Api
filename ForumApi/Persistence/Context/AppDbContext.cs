@@ -107,13 +107,14 @@ namespace ForumApi.Persistence.Context
             builder.Entity<User>().ToTable("Users");
             builder.Entity<User>().HasKey(x=>x.Id);
             builder.Entity<User>().Property(x=>x.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<User>().Property(x=>x.Name).IsRequired();
-            builder.Entity<User>().Property(x=>x.Surname).IsRequired();
+            /*builder.Entity<User>().Property(x=>x.Name).IsRequired();
+            builder.Entity<User>().Property(x=>x.Surname).IsRequired();*/
             builder.Entity<User>().Property(x=>x.User_Name).IsRequired();
             builder.Entity<User>().Property(x=>x.Email).IsRequired();
-            builder.Entity<User>().Property(x=>x.Phone_Number).IsRequired();
+            builder.Entity<User>().Property(x=>x.Password).IsRequired();
+            //builder.Entity<User>().Property(x=>x.Phone_Number).IsRequired();
             builder.Entity<User>().Property(x=>x.Birthday).IsRequired();
-            builder.Entity<User>().Property(x=>x.Avatar_Id).IsRequired();
+            //builder.Entity<User>().Property(x=>x.Avatar_Id).IsRequired();
             builder.Entity<User>().HasOne(x=>x.Avatar_Image).WithMany(x=>x.Users).HasForeignKey(x=>x.Avatar_Id);
             builder.Entity<User>().HasOne(x=>x.User_Info).WithOne(x=>x.User).HasForeignKey<User>(x=>x.User_Info_Id);
             builder.Entity<User>().HasMany(x=>x.Sended_Messages).WithOne(x=>x.Sender);
