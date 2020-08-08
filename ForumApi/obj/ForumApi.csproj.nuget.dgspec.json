@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj": {}
+    "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj": {
+    "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
+        "projectUniqueName": "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
         "projectName": "ForumApi",
-        "projectPath": "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
+        "projectPath": "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\obj\\",
+        "outputPath": "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -43,6 +43,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.6, )"
