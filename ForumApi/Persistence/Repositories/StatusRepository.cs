@@ -3,7 +3,7 @@ using ForumApi.Domain.IRepositories;
 using ForumApi.Persistence.Context;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
+using Microsoft.EntityFrameworkCore;
 namespace ForumApi.Persistence.Repositories
 {
     public class StatusRepository : BaseRepository, IStatus_Repository
@@ -12,29 +12,29 @@ namespace ForumApi.Persistence.Repositories
         {
         }
 
-        public Task AddAsync(Status status)
+        public async Task AddAsync(Status status)
         {
-            throw new System.NotImplementedException();
+            await context.Statuses.AddAsync(status);
         }
 
         public void Delete(Status status)
         {
-            throw new System.NotImplementedException();
+            context.Statuses.Remove(status);
         }
 
-        public Task<Status> FindByIdAsync(int id)
+        public async Task<Status> FindByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await context.Statuses.FindAsync(id);
         }
 
-        public Task<IEnumerable<Status>> GetAllAsync()
+        public async Task<IEnumerable<Status>> GetAllAsync()
         {
-            throw new System.NotImplementedException();
+            return await context.Statuses.ToListAsync();
         }
 
         public void Update(Status status)
         {
-            throw new System.NotImplementedException();
+            context.Statuses.Update(status);
         }
     }
 }

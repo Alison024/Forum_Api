@@ -8,7 +8,7 @@ namespace ForumApi.Domain.IRepositories
         Task<IEnumerable<Sub_category>> GetAllAsync();
         Task AddAsync(Sub_category status);
         void Update(Sub_category status);
-        Task<Status> FindByIdAsync(int id);
+        Task<Sub_category> FindByIdAsync(int id);
         void Delete(Sub_category status);
     }
 }

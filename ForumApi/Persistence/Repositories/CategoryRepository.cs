@@ -3,7 +3,7 @@ using ForumApi.Domain.IRepositories;
 using ForumApi.Persistence.Context;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
+using Microsoft.EntityFrameworkCore;
 namespace ForumApi.Persistence.Repositories
 {
     public class CategoryRepository : BaseRepository, ICategory_Repository
@@ -12,29 +12,29 @@ namespace ForumApi.Persistence.Repositories
         {
         }
 
-        public Task AddAsync(Category category)
+        public async Task AddAsync(Category category)
         {
-            throw new System.NotImplementedException();
+            await context.Categories.AddAsync(category);
         }
 
         public void Delete(Category category)
         {
-            throw new System.NotImplementedException();
+            context.Categories.Remove(category);
         }
 
-        public Task<Category> FindByIdAsync(int id)
+        public async Task<Category> FindByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await context.Categories.FindAsync(id);
         }
 
-        public Task<IEnumerable<Category>> GetAllAsync()
+        public async Task<IEnumerable<Category>> GetAllAsync()
         {
-            throw new System.NotImplementedException();
+            return await context.Categories.ToListAsync();
         }
 
         public void Update(Category category)
         {
-            throw new System.NotImplementedException();
+            context.Categories.Update(category);
         }
     }
 }

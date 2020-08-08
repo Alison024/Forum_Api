@@ -3,7 +3,7 @@ using ForumApi.Domain.IRepositories;
 using ForumApi.Persistence.Context;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
+using Microsoft.EntityFrameworkCore;
 namespace ForumApi.Persistence.Repositories
 {
     public class PostTypeRepository : BaseRepository, IPost_Type_Repository
@@ -12,29 +12,29 @@ namespace ForumApi.Persistence.Repositories
         {
         }
 
-        public Task AddAsync(Post_type post_Type)
+        public async Task AddAsync(Post_type post_Type)
         {
-            throw new System.NotImplementedException();
+            await context.Post_Types.AddAsync(post_Type);
         }
 
         public void Delete(Post_type post_Type)
         {
-            throw new System.NotImplementedException();
+            context.Post_Types.Remove(post_Type);
         }
 
-        public Task<Post_type> FindByIdAsync(int id)
+        public async Task<Post_type> FindByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await context.Post_Types.FindAsync(id);
         }
 
-        public Task<IEnumerable<Post_type>> GetAllAsync()
+        public async Task<IEnumerable<Post_type>> GetAllAsync()
         {
-            throw new System.NotImplementedException();
+            return await context.Post_Types.ToListAsync();
         }
 
         public void Update(Post_type post_Type)
         {
-            throw new System.NotImplementedException();
+            context.Post_Types.Update(post_Type);
         }
     }
 }

@@ -3,7 +3,7 @@ using ForumApi.Domain.IRepositories;
 using ForumApi.Persistence.Context;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
+using Microsoft.EntityFrameworkCore;
 namespace ForumApi.Persistence.Repositories
 {
     public class AvatarImageRepository : BaseRepository, IAvatar_Images_Repository
@@ -12,29 +12,29 @@ namespace ForumApi.Persistence.Repositories
         {
         }
 
-        public Task AddAsync(Avatar_image img)
+        public async Task AddAsync(Avatar_image img)
         {
-            throw new System.NotImplementedException();
+            await context.Avatar_Images.AddAsync(img);
         }
 
         public void Delete(Avatar_image img)
         {
-            throw new System.NotImplementedException();
+            context.Avatar_Images.Remove(img);
         }
 
-        public Task<Avatar_image> FindByIdAsync(int id)
+        public async Task<Avatar_image> FindByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await context.Avatar_Images.FindAsync(id);
         }
 
-        public Task<IEnumerable<Avatar_image>> GetAllAsync()
+        public async Task<IEnumerable<Avatar_image>> GetAllAsync()
         {
-            throw new System.NotImplementedException();
+            return await context.Avatar_Images.ToListAsync();
         }
 
         public void Update(Avatar_image img)
         {
-            throw new System.NotImplementedException();
+            context.Avatar_Images.Update(img);
         }
     }
 }

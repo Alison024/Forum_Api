@@ -3,7 +3,7 @@ using ForumApi.Domain.IRepositories;
 using ForumApi.Persistence.Context;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
+using Microsoft.EntityFrameworkCore;
 namespace ForumApi.Persistence.Repositories
 {
     public class SubCategoryRepository : BaseRepository, ISub_Category_Repository
@@ -12,29 +12,29 @@ namespace ForumApi.Persistence.Repositories
         {
         }
 
-        public Task AddAsync(Sub_category status)
+        public async Task AddAsync(Sub_category sub_Category)
         {
-            throw new System.NotImplementedException();
+            await context.Sub_Categories.AddAsync(sub_Category);
         }
 
-        public void Delete(Sub_category status)
+        public void Delete(Sub_category sub_Category)
         {
-            throw new System.NotImplementedException();
+            context.Sub_Categories.Remove(sub_Category);
         }
 
-        public Task<Status> FindByIdAsync(int id)
+        public async Task<Sub_category> FindByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await context.Sub_Categories.FindAsync(id);
         }
 
-        public Task<IEnumerable<Sub_category>> GetAllAsync()
+        public async Task<IEnumerable<Sub_category>> GetAllAsync()
         {
-            throw new System.NotImplementedException();
+            return await context.Sub_Categories.Include(x=>x.Category_Id).ToListAsync();
         }
 
-        public void Update(Sub_category status)
+        public void Update(Sub_category sub_Category)
         {
-            throw new System.NotImplementedException();
+            context.Sub_Categories.Update(sub_Category);
         }
     }
 }
