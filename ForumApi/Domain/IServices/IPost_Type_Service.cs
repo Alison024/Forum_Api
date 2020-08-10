@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using ForumApi.Domain.Responses;
 namespace ForumApi.Domain.IServices
 {
-    public interface Post_Type_Service
+    public interface IPost_Type_Service
     {
         Task<IEnumerable<Post_type>> GetAllAsync();
         Task<Post_type> GetById(int id);

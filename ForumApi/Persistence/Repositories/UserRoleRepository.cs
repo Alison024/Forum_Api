@@ -4,6 +4,7 @@ using ForumApi.Persistence.Context;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace ForumApi.Persistence.Repositories
 {
@@ -23,9 +24,18 @@ namespace ForumApi.Persistence.Repositories
             context.User_Roles.Remove(user_Role);
         }
 
-        public async Task<User_role> FindByIdAsync(int id)
+        public async Task<User_role> FindByCompatibleKeyAsync(int user_Id,int role_Id)
         {
-            return await context.User_Roles.FindAsync(id);
+            return await context.User_Roles.SingleOrDefaultAsync(x=>x.User_Id==user_Id && x.Role_Id == role_Id);
+        }
+
+        public async Task<IEnumerable<User_role>> GetByUserId(int user_Id)
+        {
+            return await context.User_Roles.Where(x=>x.User_Id == user_Id).ToListAsync();
+        }
+        public async Task<IEnumerable<User_role>> GetByRoleId(int role_Id)
+        {
+            return await context.User_Roles.Where(x=>x.Role_Id == role_Id).ToListAsync();
         }
 
         public async Task<IEnumerable<User_role>> GetAllAsync()

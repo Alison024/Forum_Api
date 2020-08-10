@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using ForumApi.Domain.Responses;
 namespace ForumApi.Domain.IServices
 {
-    public interface Post_Sub_Category_Service
+    public interface IPost_Sub_Category_Service
     {
         Task<IEnumerable<Post_sub_category>> GetAllAsync();
         Task<IEnumerable<Post_sub_category>> GetSubCategoriesOfPost(int post_Id);

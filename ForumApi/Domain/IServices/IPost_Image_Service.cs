@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using ForumApi.Domain.Responses;
 namespace ForumApi.Domain.IServices
 {
-    public interface Post_Image_Service
+    public interface IPost_Image_Service
     {
         Task<IEnumerable<Post_image>> GetAllAsync();
         Task<IEnumerable<Post_image>> GetImagesOfPost(int post_Id);
