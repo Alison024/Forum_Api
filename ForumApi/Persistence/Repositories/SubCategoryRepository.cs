@@ -29,7 +29,7 @@ namespace ForumApi.Persistence.Repositories
 
         public async Task<IEnumerable<Sub_category>> GetAllAsync()
         {
-            return await context.Sub_Categories.Include(x=>x.Category_Id).ToListAsync();
+            return await context.Sub_Categories.Include(x=>x.Category).ToListAsync();
         }
 
         public void Update(Sub_category sub_Category)

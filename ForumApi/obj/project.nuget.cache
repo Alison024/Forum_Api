@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H+7OCfTs99iXd8HtpHHjWZ2+VSznBQHCHQSKm4xkXoVGahHsg5Xf0IHJHw6LVuYcKorMoo2m4GvsO8/xEHnkVg==",
+  "dgSpecHash": "4/DkM6Vq0VNcgSDx+ZWmEPcaDuzInwak7bV+q/329ksNR0WQwaJptWSVUn6Z7Bg4lWECHbqXyZcKAnkcyTh+ig==",
   "success": true,
-  "projectFilePath": "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
+  "projectFilePath": "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.0\\automapper.extensions.microsoft.dependencyinjection.8.0.0.nupkg.sha512",

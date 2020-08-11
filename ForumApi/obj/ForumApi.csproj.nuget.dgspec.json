@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj": {}
+    "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj": {}
   },
   "projects": {
-    "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj": {
+    "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
+        "projectUniqueName": "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
         "projectName": "ForumApi",
-        "projectPath": "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
+        "projectPath": "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\ForumApi.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "d:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\obj\\",
+        "outputPath": "D:\\Projects\\Web_Exam\\web_api\\Forum_Api\\ForumApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

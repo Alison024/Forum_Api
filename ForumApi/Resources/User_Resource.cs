@@ -1,3 +1,4 @@
+
 namespace ForumApi.Resources
 {
     public class User_Resource
@@ -10,5 +11,6 @@ namespace ForumApi.Resources
         public string User_Name{get;set;}
         public string Email{get;set;}
         public string Phone_Number{get;set;}
+        public User_Info_Resource User_Info{get;set;}
     }
 }
