@@ -1,0 +1,15 @@
+GET https://localhost:5001/api/users
+###
+POST https://localhost:5001/api/users
+Content-Type: application/json
+
+{
+    "Avatar_Id": 1,
+    "Name":"Anna",
+    "Surname":"Prior",
+    "User_Name":"Kotik",
+    "Email":"cavai@gmail.com",
+    "Password":"654321",
+    "Phone_Number":null,
+    "Birthday": "24.05.1991 0:00:00"
+}

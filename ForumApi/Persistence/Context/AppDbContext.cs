@@ -1,6 +1,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using ForumApi.Domain.Models;
+using ForumApi.Helpers;
 namespace ForumApi.Persistence.Context
 {
     public class AppDbContext:DbContext
@@ -160,10 +161,11 @@ namespace ForumApi.Persistence.Context
             builder.Entity<User>().HasMany(x=>x.Received_Messages).WithOne(x=>x.Receiver);
             builder.Entity<User>().HasMany(x=>x.User_Roles).WithOne(x=>x.User);
             builder.Entity<User>().HasMany(x=>x.Posts).WithOne(x=>x.Author);
+            
             builder.Entity<User>().HasData(
-                new User{Id = 1, Avatar_Id = 1,User_Info_Id = 1,Name="Andrey",User_Name="Pikachu2000",Email="someE@gmail.com", Password = "123123", Birthday = new DateTime(2000,7,20)},
-                new User{Id = 2, Avatar_Id = 1,User_Info_Id = 2,Name="Tolik",User_Name="super_man228",Email="someE2@gmail.com", Password = "123456", Birthday = new DateTime(2002,10,31)},
-                new User{Id = 3, Avatar_Id = 1,User_Info_Id = 3,Name="Den",User_Name="NagibatorXXX",Email="someE3@gmail.com", Password = "112233", Birthday = new DateTime(1995,2,2)}
+                new User{Id = 1, Avatar_Id = 1,User_Info_Id = 1,Name="Andrey",User_Name="Pikachu2000",Email="someE@gmail.com", Password = Helper_MD5.GenerateMD5Hash("123123"), Birthday = new DateTime(2000,7,20)},
+                new User{Id = 2, Avatar_Id = 1,User_Info_Id = 2,Name="Tolik",User_Name="super_man228",Email="someE2@gmail.com", Password = Helper_MD5.GenerateMD5Hash("123456"), Birthday = new DateTime(2002,10,31)},
+                new User{Id = 3, Avatar_Id = 1,User_Info_Id = 3,Name="Den",User_Name="NagibatorXXX",Email="someE3@gmail.com", Password = Helper_MD5.GenerateMD5Hash("112233"), Birthday = new DateTime(1995,2,2)}
             );
 
 

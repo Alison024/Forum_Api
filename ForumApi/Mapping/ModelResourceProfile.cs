@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using AutoMapper;
 using ForumApi.Resources;
@@ -49,6 +50,8 @@ namespace ForumApi.Mapping
 
             CreateMap<User_role,User_Role_Resource>();
             CreateMap<User_Role_Resource,User_role>();
+
+            CreateMap<Register_User_Resource,User>().ForMember(x=>x.Birthday,o=>o.MapFrom(x=>Convert.ToDateTime(x.Birthday)));
         }
     }
 }

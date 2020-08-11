@@ -14,6 +14,7 @@ namespace ForumApi.Persistence.Repositories
 
         public async Task AddAsync(User user)
         {
+            user.User_Info = new User_info{User_Rate = 1, Comments = 0, Answers = 0, Questions = 0};
             await context.Users.AddAsync(user);
         }
 
