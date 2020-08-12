@@ -10,6 +10,6 @@ namespace ForumApi.Domain.IServices
         Task<User> GetById(int id);
         Task<User_Response> SaveAsync(User user);
         Task<User_Response> UpdateAsync(User user);
-        Task<User_Response> DeleteAsync(User user);
+        Task<User_Response> DeleteAsync(int id);
     }
 }

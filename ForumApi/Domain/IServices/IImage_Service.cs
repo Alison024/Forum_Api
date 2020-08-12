@@ -10,6 +10,6 @@ namespace ForumApi.Domain.IServices
         Task<Image> GetById(int id);
         Task<Image_Response> SaveAsync(Image image);
         Task<Image_Response> UpdateAsync(Image image);
-        Task<Image_Response> DeleteAsync(Image image);
+        Task<Image_Response> DeleteAsync(int id);
     }
 }

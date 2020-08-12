@@ -46,5 +46,32 @@ namespace ForumApi.Controllers
             var userResource = mapper.Map<User, User_Resource>(result.user);
             return Ok(userResource);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync([FromBody] User_Resource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var user = mapper.Map<User_Resource, User>(resource);
+            var result = await userService.UpdateAsync(user);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+
+            var userResource = mapper.Map<User, User_Resource>(result.user);
+            return Ok(userResource);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await userService.DeleteAsync(id);
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+
+            var userResource = mapper.Map<User, User_Resource>(result.user);
+            return Ok(userResource);
+        }
     }
 }

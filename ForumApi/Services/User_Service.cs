@@ -16,9 +16,9 @@ namespace ForumApi.Services
             this.user_Repository = user_Repository;
         }
         
-        public async Task<User_Response> DeleteAsync(User user)
+        public async Task<User_Response> DeleteAsync(int id)
         {
-            var isExist = await user_Repository.FindByIdAsync(user.Id);
+            var isExist = await user_Repository.FindByIdAsync(id);
             if(isExist == null)
                 return new User_Response("User doesn't exist!");
 
@@ -62,9 +62,13 @@ namespace ForumApi.Services
             
             try
             {
+                //------------------------------
+                isExist = user;
                 user_Repository.Update(isExist);
+                //------------------------------
+                //user_Repository.Update(user);
                 await unit_Of_Work.CompleteAsync();
-                return new User_Response(isExist);
+                return new User_Response(user);
             }
             catch (Exception ex)
             {

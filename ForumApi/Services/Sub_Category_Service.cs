@@ -15,9 +15,9 @@ namespace ForumApi.Services
             this.unit_Of_Work = unit_Of_Work;
             this.sub_Category_Repository = sub_Category_Repository;
         }
-        public async Task<Sub_Category_Response> DeleteAsync(Sub_category sub_Category)
+        public async Task<Sub_Category_Response> DeleteAsync(int id)
         {
-            var isExist = await sub_Category_Repository.FindByIdAsync(sub_Category.Id);
+            var isExist = await sub_Category_Repository.FindByIdAsync(id);
             if(isExist == null)
                 return new Sub_Category_Response("Sub category doesn't exist!");
 

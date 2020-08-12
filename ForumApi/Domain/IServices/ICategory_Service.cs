@@ -10,6 +10,6 @@ namespace ForumApi.Domain.IServices
         Task<Category> GetById(int id);
         Task<Category_Response> SaveAsync(Category category);
         Task<Category_Response> UpdateAsync(Category category);
-        Task<Category_Response> DeleteAsync(Category category);
+        Task<Category_Response> DeleteAsync(int id);
     }
 }

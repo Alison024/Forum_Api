@@ -10,6 +10,6 @@ namespace ForumApi.Domain.IServices
         Task<Post_type> GetById(int id);
         Task<Post_Type_Response> SaveAsync(Post_type post_Type);
         Task<Post_Type_Response> UpdateAsync(Post_type post_Type);
-        Task<Post_Type_Response> DeleteAsync(Post_type post_Type);
+        Task<Post_Type_Response> DeleteAsync(int id);
     }
 }

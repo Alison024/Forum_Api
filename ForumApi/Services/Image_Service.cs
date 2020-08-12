@@ -15,9 +15,9 @@ namespace ForumApi.Services
             this.unit_Of_Work = unit_Of_Work;
             this.image_Repository = image_Repository;
         }
-        public async Task<Image_Response> DeleteAsync(Image image)
+        public async Task<Image_Response> DeleteAsync(int id)
         {
-            var isExist = await image_Repository.FindByIdAsync(image.Id);
+            var isExist = await image_Repository.FindByIdAsync(id);
             if(isExist == null)
                 return new Image_Response("Image doesn't exist!");
 

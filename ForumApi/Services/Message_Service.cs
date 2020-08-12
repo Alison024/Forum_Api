@@ -15,9 +15,9 @@ namespace ForumApi.Services
             this.unit_Of_Work = unit_Of_Work;
             this.message_Reposirtory = message_Reposirtory;
         }
-        public async Task<Message_Response> DeleteAsync(Message message)
+        public async Task<Message_Response> DeleteAsync(int id)
         {
-            var isExist = await message_Reposirtory.FindByIdAsync(message.Id);
+            var isExist = await message_Reposirtory.FindByIdAsync(id);
             if(isExist == null)
                 return new Message_Response("Message doesn't exist!");
 

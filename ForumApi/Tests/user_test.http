@@ -5,11 +5,28 @@ Content-Type: application/json
 
 {
     "Avatar_Id": 1,
-    "Name":"Anna",
-    "Surname":"Prior",
-    "User_Name":"Kotik",
-    "Email":"cavai@gmail.com",
-    "Password":"654321",
+    "Name":"Petro",
+    "Surname":"",
+    "User_Name":"Spider-man",
+    "Email":"marvel@gmail.com",
+    "Password":"321321",
     "Phone_Number":null,
-    "Birthday": "24.05.1991 0:00:00"
+    "Birthday": "14.04.1998 0:00:00"
 }
+###
+
+PUT https://localhost:5001/api/users/3
+Content-Type: application/json
+
+{
+    "Id":3,
+    //"Avatar_Id": 1,
+    //"User_Info_Id":3,
+    "Name":"Den2",
+    "Surname":null,
+    "User_Name":"NagibatorXXX2",
+    "Email":"someE32@gmail.com",
+    "Phone_Number":null,
+    "Birthday": "14.04.1999 0:00:00"
+}
+

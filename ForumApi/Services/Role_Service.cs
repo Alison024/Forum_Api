@@ -15,9 +15,9 @@ namespace ForumApi.Services
             this.unit_Of_Work = unit_Of_Work;
             this.role_Repository = role_Repository;
         }
-        public async Task<Role_Response> DeleteAsync(Role role)
+        public async Task<Role_Response> DeleteAsync(int id)
         {
-            var isExist = await role_Repository.FindByIdAsync(role.Id);
+            var isExist = await role_Repository.FindByIdAsync(id);
             if(isExist == null)
                 return new Role_Response("Role doesn't exist!");
 

@@ -10,6 +10,6 @@ namespace ForumApi.Domain.IServices
         Task<Role> GetById(int id);
         Task<Role_Response> SaveAsync(Role role);
         Task<Role_Response> UpdateAsync(Role role);
-        Task<Role_Response> DeleteAsync(Role role);
+        Task<Role_Response> DeleteAsync(int id);
     }
 }

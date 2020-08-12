@@ -15,9 +15,9 @@ namespace ForumApi.Services
             this.unit_Of_Work = unit_Of_Work;
             this.post_Repository = post_Repository;
         }
-        public async Task<Post_Response> DeleteAsync(Post post)
+        public async Task<Post_Response> DeleteAsync(int id)
         {
-           var isExist = await post_Repository.FindByIdAsync(post.Id);
+           var isExist = await post_Repository.FindByIdAsync(id);
             if(isExist == null)
                 return new Post_Response("Post doesn't exist!");
 

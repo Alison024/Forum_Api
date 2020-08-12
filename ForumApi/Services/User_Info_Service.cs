@@ -15,9 +15,9 @@ namespace ForumApi.Services
             this.unit_Of_Work = unit_Of_Work;
             this.user_Info_Repository = user_Info_Repository;
         }
-        public async Task<User_Info_Response> DeleteAsync(User_info user_Info)
+        public async Task<User_Info_Response> DeleteAsync(int id)
         {
-            var isExist = await user_Info_Repository.FindByIdAsync(user_Info.Id);
+            var isExist = await user_Info_Repository.FindByIdAsync(id);
             if(isExist == null)
                 return new User_Info_Response("User info doesn't exist!");
 

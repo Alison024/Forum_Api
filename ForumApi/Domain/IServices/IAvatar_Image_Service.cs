@@ -10,6 +10,6 @@ namespace ForumApi.Domain.IServices
         Task<Avatar_image> GetById(int id);
         Task<Avatar_Image_Response> SaveAsync(Avatar_image avatar_Image);
         Task<Avatar_Image_Response> UpdateAsync(Avatar_image avatar_Image);
-        Task<Avatar_Image_Response> DeleteAsync(Avatar_image avatar_Image);
+        Task<Avatar_Image_Response> DeleteAsync(int id);
     }
 }
