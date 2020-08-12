@@ -15,17 +15,17 @@ Content-Type: application/json
 }
 ###
 
-PUT https://localhost:5001/api/users/3
+PUT https://localhost:5001/api/users/7
 Content-Type: application/json
 
 {
-    "Id":3,
-    //"Avatar_Id": 1,
-    //"User_Info_Id":3,
-    "Name":"Den2",
+    "Id":7,
+    "Avatar_Id": 1,
+    "User_Info_Id":7,
+    "Name":"Petro2",
     "Surname":null,
-    "User_Name":"NagibatorXXX2",
-    "Email":"someE32@gmail.com",
+    "User_Name":"Spider-man2",
+    "Email":"marvel2@gmail.com",
     "Phone_Number":null,
     "Birthday": "14.04.1999 0:00:00"
 }

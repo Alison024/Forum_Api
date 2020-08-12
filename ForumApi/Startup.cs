@@ -32,9 +32,10 @@ namespace ForumApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<AppDbContext>(options=>options.UseSqlServer("Data Source=DESKTOP-VAOFU4A;Initial Catalog=ForumApi;Integrated Security=True"));
+            services.AddDbContext<AppDbContext>(options=>options.UseSqlServer("Data Source=DESKTOP-VAOFU4A;Initial Catalog=ForumApi;Integrated Security=True").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
             services.AddAutoMapper(typeof(Startup));
-
+            
+            //services.AddTransient<DbContext,AppDbContext>();
             services.AddScoped<IUnit_Of_Work,UnitOfWork>();
             services.AddScoped<IAvatar_Images_Repository,AvatarImageRepository>();
             services.AddScoped<ICategory_Repository,CategoryRepository>();
