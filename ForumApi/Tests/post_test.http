@@ -1,0 +1,31 @@
+GET https://localhost:5001/api/post
+###
+POST https://localhost:5001/api/post
+Content-Type: application/json
+
+{
+    "Author_Id":1,
+    "Post_Type_Id":3,
+    "Title":"test post",
+    "Post_Content":"XD",
+    "Date":"2020-08-13T10:00:00",
+    "Post_Rate":1,
+    "Post_Images":null
+}
+###
+
+PUT https://localhost:5001/api/post
+Content-Type: application/json
+
+{
+    "Id":1,
+    "Author_Id":1,
+    "Post_Type_Id":1,
+    "Title":"first post (2)",
+    "Post_Content":"Hi, I very tired, is it fun, yeah?",
+    "Date":"2020-08-13T10:00:00",
+    "Post_Rate":1,
+    "Post_Images":null
+}
+###
+DELETE https://localhost:5001/api/post/7

@@ -60,9 +60,9 @@ namespace ForumApi.Services
                 return new Role_Response("Role not found!");
             try
             {
-                role_Repository.Update(isExist);
+                role_Repository.Update(role);
                 await unit_Of_Work.CompleteAsync();
-                return new Role_Response(isExist);
+                return new Role_Response(role);
             }
             catch (Exception ex)
             {

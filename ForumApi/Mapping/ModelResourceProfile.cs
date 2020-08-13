@@ -18,8 +18,9 @@ namespace ForumApi.Mapping
             CreateMap<Image,Image_Resource>();
             CreateMap<Image_Resource,Image>();
 
-            CreateMap<Message,Message_Resource>();
-            CreateMap<Message_Resource,Message>();
+            CreateMap<Message_Resource,Message>().ForMember(x=>x.Send_Time,o=>o.MapFrom(x=>Convert.ToDateTime(x.Send_Time)));
+            CreateMap<Message,Message_Resource>();//.ForMember(x=>x.Send_Time,o=>o.MapFrom(x=>x.Send_Time.ToString()));
+            
 
             CreateMap<Post,Post_Resource>();
             CreateMap<Post_Resource,Post>();

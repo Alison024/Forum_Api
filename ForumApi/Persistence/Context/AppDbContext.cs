@@ -71,7 +71,7 @@ namespace ForumApi.Persistence.Context
             builder.Entity<Post>().Property(x=>x.Date).IsRequired();
             builder.Entity<Post>().Property(x=>x.Post_Rate).IsRequired();
             builder.Entity<Post>().HasOne(x=>x.Author).WithMany(x=>x.Posts).HasForeignKey(x=>x.Author_Id);
-            builder.Entity<Post>().HasOne(x=>x.Parent_Post).WithMany(x=>x.Children_Posts).HasForeignKey(x=>x.Paren_Post_Id).OnDelete(DeleteBehavior.ClientSetNull);/*Не удалось создать внешний ключ "FK_Posts_Posts_Paren_Post_Id" со ссылочным действием SET NULL, поскольку один или несколько ссылающихся столбцов не допускают значения NULL.*/
+            builder.Entity<Post>().HasOne(x=>x.Parent_Post).WithMany(x=>x.Children_Posts).OnDelete(DeleteBehavior.ClientSetNull);/*Не удалось создать внешний ключ "FK_Posts_Posts_Paren_Post_Id" со ссылочным действием SET NULL, поскольку один или несколько ссылающихся столбцов не допускают значения NULL.*/ //.HasForeignKey(x=>x.Paren_Post_Id) wtf ?
             builder.Entity<Post>().HasOne(x=>x.Post_Type).WithMany(x=>x.Posts).HasForeignKey(x=>x.Post_Type_Id);
             builder.Entity<Post>().HasMany(x=>x.Post_Images).WithOne(x=>x.Post);
             builder.Entity<Post>().HasMany(x=>x.Post_Sub_Categories).WithOne(x=>x.Post);
@@ -99,7 +99,8 @@ namespace ForumApi.Persistence.Context
                 new Post_type{Id = 1, Name = "News"},
                 new Post_type{Id = 2, Name = "Event"},
                 new Post_type{Id = 3, Name = "Question"},
-                new Post_type{Id = 4, Name = "Vacancy"}
+                new Post_type{Id = 4, Name = "Vacancy"},
+                new Post_type{Id = 5, Name = "Joke"}
             );
 
             builder.Entity<Role>().ToTable("Roles");

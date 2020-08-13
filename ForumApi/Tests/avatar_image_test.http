@@ -1,0 +1,23 @@
+GET https://localhost:5001/api/avatar-image
+###
+POST https://localhost:5001/api/avatar-image
+Content-Type: application/json
+
+{
+    "File_Name":"770117_people_512x512.png",
+    "Image_Data":null,
+    "Image_Url":"https://www.shareicon.net/data/256x256/2016/05/24/770117_people_512x512.png"
+}
+###
+
+PUT https://localhost:5001/api/avatar-image
+Content-Type: application/json
+
+{
+    "Id":2,
+    "File_Name":"770117_people_512x512(2).png",
+    "Image_Data":null,
+    "Image_Url":"https://www.shareicon.net/data/256x256/2016/05/24/770117_people_512x512.png"
+}
+###
+DELETE https://localhost:5001/api/avatar-image/2

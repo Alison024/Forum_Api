@@ -62,11 +62,8 @@ namespace ForumApi.Services
             
             try
             {
-                //------------------------------
-                isExist = user;
-                user_Repository.Update(isExist);
-                //------------------------------
-                //user_Repository.Update(user);
+                user.Password = isExist.Password;
+                user_Repository.Update(user);
                 await unit_Of_Work.CompleteAsync();
                 return new User_Response(user);
             }

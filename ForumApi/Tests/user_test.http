@@ -5,28 +5,30 @@ Content-Type: application/json
 
 {
     "Avatar_Id": 1,
-    "Name":"Petro",
-    "Surname":"",
-    "User_Name":"Spider-man",
-    "Email":"marvel@gmail.com",
-    "Password":"321321",
+    "Name":"SomeTestMan",
+    "Surname":null,
+    "User_Name":"mix222",
+    "Email":"chell@gmail.com",
+    "Password":"123456",
     "Phone_Number":null,
-    "Birthday": "14.04.1998 0:00:00"
+    "Birthday": "14.05.1998 0:00:00"
 }
 ###
 
-PUT https://localhost:5001/api/users/7
+PUT https://localhost:5001/api/users
 Content-Type: application/json
 
 {
-    "Id":7,
+    "Id":8,
     "Avatar_Id": 1,
-    "User_Info_Id":7,
-    "Name":"Petro2",
+    "User_Info_Id":8,
+    "Name":"Petro5",
     "Surname":null,
     "User_Name":"Spider-man2",
     "Email":"marvel2@gmail.com",
     "Phone_Number":null,
-    "Birthday": "14.04.1999 0:00:00"
+    "Birthday": "14.03.1999 0:00:00"
 }
+###
+DELETE https://localhost:5001/api/users/9
 

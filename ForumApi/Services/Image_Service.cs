@@ -61,9 +61,9 @@ namespace ForumApi.Services
             
             try
             {
-                image_Repository.Update(isExist);
+                image_Repository.Update(image);
                 await unit_Of_Work.CompleteAsync();
-                return new Image_Response(isExist);
+                return new Image_Response(image);
             }
             catch (Exception ex)
             {

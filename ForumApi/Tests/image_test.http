@@ -1,0 +1,40 @@
+GET https://localhost:5001/api/image
+###
+POST https://localhost:5001/api/image
+Content-Type: application/json
+
+{
+    "File_Name":"8a5ad1a7ee81e7acabe80682b312d2d8.jpg",
+    "Image_Data":null,
+    "Image_Url":"https://i.pinimg.com/originals/8a/5a/d1/8a5ad1a7ee81e7acabe80682b312d2d8.jpg"
+}
+###
+POST https://localhost:5001/api/image
+Content-Type: application/json
+
+{
+    "File_Name":"5e04c21a52a39.jpg",
+    "Image_Data":null,
+    "Image_Url":"https://millionstatusov.ru/pic/statpic/all8/5e04c21a52a39.jpg"
+}
+###
+POST https://localhost:5001/api/image
+Content-Type: application/json
+
+{
+    "File_Name":"c0b77faeb2cb3e67fd1b423c4535f6c3.jpg",
+    "Image_Data":null,
+    "Image_Url":"https://i.pinimg.com/originals/c0/b7/7f/c0b77faeb2cb3e67fd1b423c4535f6c3.jpg"
+}
+###
+PUT https://localhost:5001/api/image
+Content-Type: application/json
+
+{
+    "Id":1,
+    "File_Name":"8a5ad1a7ee81e7acabe80682b312d2d8(222222222).jpg",
+    "Image_Data":null,
+    "Image_Url":"https://i.pinimg.com/originals/8a/5a/d1/8a5ad1a7ee81e7acabe80682b312d2d8.jpg"
+}
+###
+DELETE https://localhost:5001/api/image/1

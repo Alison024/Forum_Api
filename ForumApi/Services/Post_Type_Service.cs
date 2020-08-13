@@ -60,9 +60,9 @@ namespace ForumApi.Services
                 return new Post_Type_Response("Post type not found!");
             try
             {
-                post_Type_Repository.Update(isExist);
+                post_Type_Repository.Update(post_Type);
                 await unit_Of_Work.CompleteAsync();
-                return new Post_Type_Response(isExist);
+                return new Post_Type_Response(post_Type);
             }
             catch (Exception ex)
             {

@@ -60,9 +60,9 @@ namespace ForumApi.Services
                 return new Post_Image_Response("Post-image not found!");
             try
             {
-                post_Image_Repository.Update(isExist);
+                post_Image_Repository.Update(post_Image);
                 await unit_Of_Work.CompleteAsync();
-                return new Post_Image_Response(isExist);
+                return new Post_Image_Response(post_Image);
             }
             catch (Exception ex)
             {

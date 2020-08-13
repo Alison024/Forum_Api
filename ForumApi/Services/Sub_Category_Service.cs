@@ -61,9 +61,9 @@ namespace ForumApi.Services
             
             try
             {
-                sub_Category_Repository.Update(isExist);
+                sub_Category_Repository.Update(sub_Category);
                 await unit_Of_Work.CompleteAsync();
-                return new Sub_Category_Response(isExist);
+                return new Sub_Category_Response(sub_Category);
             }
             catch (Exception ex)
             {

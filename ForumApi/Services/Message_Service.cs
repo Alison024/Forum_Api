@@ -61,9 +61,9 @@ namespace ForumApi.Services
             
             try
             {
-                message_Reposirtory.Update(isExist);
+                message_Reposirtory.Update(message);
                 await unit_Of_Work.CompleteAsync();
-                return new Message_Response(isExist);
+                return new Message_Response(message);
             }
             catch (Exception ex)
             {

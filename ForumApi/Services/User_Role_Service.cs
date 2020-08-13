@@ -66,9 +66,9 @@ namespace ForumApi.Services
             
             try
             {
-                user_Role_Repository.Update(isExist);
+                user_Role_Repository.Update(user_Role);
                 await unit_Of_Work.CompleteAsync();
-                return new User_Role_Response(isExist);
+                return new User_Role_Response(user_Role);
             }
             catch (Exception ex)
             {

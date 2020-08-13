@@ -60,9 +60,9 @@ namespace ForumApi.Services
                 return new User_Info_Response("User info not found!");
             try
             {
-                user_Info_Repository.Update(isExist);
+                user_Info_Repository.Update(user_Info);
                 await unit_Of_Work.CompleteAsync();
-                return new User_Info_Response(isExist);
+                return new User_Info_Response(user_Info);
             }
             catch (Exception ex)
             {

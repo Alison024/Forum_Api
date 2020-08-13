@@ -1,0 +1,27 @@
+GET https://localhost:5001/api/message
+###
+POST https://localhost:5001/api/message
+Content-Type: application/json
+
+{
+    "Sender_Id":2,
+    "Receiver_Id":1,
+    "Send_Time":"2020-08-12T10:36:00",
+    "Message_Content":"I am fine, thank you.",
+    "Status_Id":1
+}
+###
+
+PUT https://localhost:5001/api/message
+Content-Type: application/json
+
+{
+    "Id":3,
+    "Sender_Id":2,
+    "Receiver_Id":1,
+    "Send_Time": "2020-08-12T10:36:00",
+    "Message_Content":"I am fine (2)",
+    "Status_Id":1
+}
+###
+DELETE https://localhost:5001/api/message/3

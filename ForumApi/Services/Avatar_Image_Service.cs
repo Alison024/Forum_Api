@@ -62,9 +62,9 @@ namespace ForumApi.Services
             
             try
             {
-                avatar_Images_Repository.Update(existAvatarImage);
+                avatar_Images_Repository.Update(avatar_Image);
                 await unit_Of_Work.CompleteAsync();
-                return new Avatar_Image_Response(existAvatarImage);
+                return new Avatar_Image_Response(avatar_Image);
             }
             catch (Exception ex)
             {

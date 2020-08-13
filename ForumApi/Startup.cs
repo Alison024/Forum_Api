@@ -31,7 +31,7 @@ namespace ForumApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddDbContext<AppDbContext>(options=>options.UseSqlServer("Data Source=DESKTOP-VAOFU4A;Initial Catalog=ForumApi;Integrated Security=True").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
             services.AddAutoMapper(typeof(Startup));
             

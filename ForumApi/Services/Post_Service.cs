@@ -44,6 +44,8 @@ namespace ForumApi.Services
         public async Task<Post_Response> SaveAsync(Post post)
         {
             try{
+                
+
                 await post_Repository.AddAsync(post);
                 await unit_Of_Work.CompleteAsync();
                 return new Post_Response(post);
@@ -60,9 +62,9 @@ namespace ForumApi.Services
                 return new Post_Response("Post not found!");
             try
             {
-                post_Repository.Update(isExist);
+                post_Repository.Update(post);
                 await unit_Of_Work.CompleteAsync();
-                return new Post_Response(isExist);
+                return new Post_Response(post);
             }
             catch (Exception ex)
             {

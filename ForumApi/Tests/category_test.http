@@ -1,0 +1,21 @@
+GET https://localhost:5001/api/category
+###
+POST https://localhost:5001/api/category
+Content-Type: application/json
+
+{
+    "Title":"Some Category",
+    "Description":null
+}
+###
+
+PUT https://localhost:5001/api/category
+Content-Type: application/json
+
+{
+    "Id":5,
+    "Title":"Some Category 2",
+    "Description":null
+}
+###
+DELETE https://localhost:5001/api/category/5

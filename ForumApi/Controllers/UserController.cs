@@ -47,7 +47,7 @@ namespace ForumApi.Controllers
             return Ok(userResource);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] User_Resource resource)
         {
             if (!ModelState.IsValid)

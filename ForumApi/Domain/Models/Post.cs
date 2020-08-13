@@ -6,7 +6,7 @@ namespace ForumApi.Domain.Models
     {
         public int Id{get;set;}
         public int Author_Id{get;set;}
-        public int Paren_Post_Id{get;set;}
+        public int? Paren_Post_Id{get;set;}
         public int Post_Type_Id{get;set;}
         public string Title{get;set;}
         public string Post_Content{get;set;}

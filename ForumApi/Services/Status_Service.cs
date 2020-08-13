@@ -61,9 +61,9 @@ namespace ForumApi.Services
             
             try
             {
-                status_Repository.Update(isExist);
+                status_Repository.Update(status);
                 await unit_Of_Work.CompleteAsync();
-                return new Status_Response(isExist);
+                return new Status_Response(status);
             }
             catch (Exception ex)
             {
