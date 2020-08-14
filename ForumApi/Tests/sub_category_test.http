@@ -1,0 +1,23 @@
+GET https://localhost:5001/api/sub-category
+###
+POST https://localhost:5001/api/sub-category
+Content-Type: application/json
+
+{
+    "Titile":"New sub category",
+    "Description":null,
+    "Category_Id":1
+}
+###
+
+PUT https://localhost:5001/api/sub-category
+Content-Type: application/json
+
+{
+    "Id":23,
+    "Titile":"new sub 2",
+    "Description":null,
+    "Category_Id":1
+}
+###
+DELETE https://localhost:5001/api/sub-category/23

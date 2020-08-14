@@ -1,0 +1,19 @@
+GET https://localhost:5001/api/post-type
+###
+POST https://localhost:5001/api/post-type
+Content-Type: application/json
+
+{
+    "Name":"Meme"
+}
+###
+
+PUT https://localhost:5001/api/post-type
+Content-Type: application/json
+
+{
+    "Id":1,
+    "Name":"News"
+}
+###
+DELETE https://localhost:5001/api/post-type/6

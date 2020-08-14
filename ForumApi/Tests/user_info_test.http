@@ -1,0 +1,25 @@
+GET https://localhost:5001/api/user-info
+###
+POST https://localhost:5001/api/user-info
+Content-Type: application/json
+
+{
+    "User_Rate":2,
+    "Comments":0,
+    "Answers":0,
+    "Questions":1
+}
+###
+
+PUT https://localhost:5001/api/user-info
+Content-Type: application/json
+
+{
+    "Id":4,
+    "User_Rate":100,
+    "Comments":0,
+    "Answers":0,
+    "Questions":1
+}
+###
+DELETE https://localhost:5001/api/user-info/4

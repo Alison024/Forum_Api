@@ -1,0 +1,19 @@
+GET https://localhost:5001/api/role
+###
+POST https://localhost:5001/api/role
+Content-Type: application/json
+
+{
+    "Name":"Good user"
+}
+###
+
+PUT https://localhost:5001/api/role
+Content-Type: application/json
+
+{
+    "Id":4,
+    "Name":"Good user 2"
+}
+###
+DELETE https://localhost:5001/api/role/4

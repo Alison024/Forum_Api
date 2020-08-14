@@ -1,0 +1,19 @@
+GET https://localhost:5001/api/status
+###
+POST https://localhost:5001/api/status
+Content-Type: application/json
+
+{
+    "Name":"Sending..."
+}
+###
+
+PUT https://localhost:5001/api/status
+Content-Type: application/json
+
+{
+    "Id":4,
+    "Name":"Sending....2"
+}
+###
+DELETE https://localhost:5001/api/status/4
