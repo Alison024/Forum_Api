@@ -6,11 +6,19 @@ Content-Type: application/json
 {
     "Author_Id":1,
     "Post_Type_Id":3,
-    "Title":"test post",
-    "Post_Content":"XD",
-    "Date":"2020-08-13T10:00:00",
+    "Title":"test post 4 with images",
+    "Post_Content":"It will be fun !!!!????))))",
+    "Date":"2020-08-13T11:30:00",
     "Post_Rate":1,
-    "Post_Images":null
+    "Post_Images":[
+        {
+            "Image_Id":2,
+            "Post_Id":8
+        },{
+            "Image_Id":3,
+            "Post_Id":8
+        }
+    ]
 }
 ###
 
@@ -18,14 +26,25 @@ PUT https://localhost:5001/api/post
 Content-Type: application/json
 
 {
-    "Id":1,
+    "Id":8,
     "Author_Id":1,
-    "Post_Type_Id":1,
-    "Title":"first post (2)",
-    "Post_Content":"Hi, I very tired, is it fun, yeah?",
-    "Date":"2020-08-13T10:00:00",
+    "Post_Type_Id":3,
+    "Title":"test post 2 with images",
+    "Post_Content":"It will be fun ))))",
+    "Date":"2020-08-13T10:30:00",
     "Post_Rate":1,
-    "Post_Images":null
+    "Post_Images":[
+        {
+            "Image_Id":1,
+            "Post_Id":8
+        },{
+            "Image_Id":2,
+            "Post_Id":8
+        },{
+            "Image_Id":3,
+            "Post_Id":8
+        }
+    ]
 }
 ###
-DELETE https://localhost:5001/api/post/7
+DELETE https://localhost:5001/api/post/9

@@ -4,5 +4,6 @@ namespace ForumApi.Resources
     {
         public int Image_Id{get;set;}
         public int Post_Id{get;set;}
+        public Image_Resource Image{get;set;}
     }
 }

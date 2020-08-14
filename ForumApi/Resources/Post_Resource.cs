@@ -13,7 +13,7 @@ namespace ForumApi.Resources
         public string Post_Content{get;set;}
         public DateTime Date{get;set;}
         public int Post_Rate{get;set;}
-        public IList<Image_Resource> Post_Images{get;set;}
+        public IList<Post_Image_Resource> Post_Images{get;set;}
 
     }
 }
