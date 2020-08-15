@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 
 using System;
 
@@ -15,5 +16,6 @@ namespace ForumApi.Resources
         public string Phone_Number{get;set;}
         public string Birthday{get;set;}
         public User_Info_Resource User_Info{get;set;}
+        public IList<User_Role_Resource> User_Roles{get;set;}
     }
 }

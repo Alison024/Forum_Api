@@ -1,0 +1,33 @@
+GET https://localhost:5001/api/post-sub-category
+###
+GET https://localhost:5001/api/post-sub-category/GetBySubCategoryId/1
+###
+GET https://localhost:5001/api/post-sub-category/GetBySubCategoryId/1
+###
+GET https://localhost:5001/api/post-sub-category/GetByPostId/1
+###
+POST https://localhost:5001/api/post-sub-category
+Content-Type: application/json
+
+{
+    "Post_Id":2,
+    "Sub_Category_Id":7
+}
+###
+
+PUT https://localhost:5001/api/post-sub-category
+Content-Type: application/json
+
+{
+    "Image_Id":2,
+    "Post_Id":0
+}
+###
+
+DELETE https://localhost:5001/api/post-sub-category/1
+Content-Type: application/json
+
+{
+    "Post_Id":2,
+    "Sub_Category_Id":7
+}

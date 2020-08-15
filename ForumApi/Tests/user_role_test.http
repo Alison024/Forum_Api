@@ -1,0 +1,33 @@
+GET https://localhost:5001/api/user-role
+###
+GET https://localhost:5001/api/user-role/GetRolesOfUser/2
+###
+GET https://localhost:5001/api/user-role/GetUsersWithRole/2
+###
+POST https://localhost:5001/api/user-role
+Content-Type: application/json
+
+{
+    "Role_Id":1,
+    "User_Id":2
+}
+###
+
+PUT https://localhost:5001/api/user-role
+Content-Type: application/json
+
+{
+    "Id":4,
+    "User_Rate":100,
+    "Comments":0,
+    "Answers":0,
+    "Questions":1
+}
+###
+DELETE https://localhost:5001/api/user-role
+Content-Type: application/json
+
+{
+    "Role_Id":1,
+    "User_Id":2
+}

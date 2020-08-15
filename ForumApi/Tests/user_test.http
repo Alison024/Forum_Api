@@ -11,7 +11,8 @@ Content-Type: application/json
     "Email":"chell@gmail.com",
     "Password":"123456",
     "Phone_Number":null,
-    "Birthday": "14.05.1998 0:00:00"
+    "Birthday": "14.05.1998 0:00:00",
+    
 }
 ###
 
