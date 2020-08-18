@@ -24,7 +24,7 @@ namespace ForumApi.Extensions
             {
                 Subject = new System.Security.Claims.ClaimsIdentity(claims),//claims
                 Expires = DateTime.UtcNow.AddMinutes(expire),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)//HmacSha256Signature
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
