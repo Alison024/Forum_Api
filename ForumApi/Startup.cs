@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,12 +13,17 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using ForumApi.Persistence.Context;
 using ForumApi.Domain.IRepositories;
 using ForumApi.Persistence.Repositories;
 using ForumApi.Domain.IServices;
 using ForumApi.Services;
+using ForumApi.Helpers;
 using AutoMapper;
+using System.Text;
+
 namespace ForumApi
 {
     public class Startup
@@ -31,8 +37,32 @@ namespace ForumApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
             services.AddControllers().AddNewtonsoftJson();
-            services.AddDbContext<AppDbContext>(options=>options.UseSqlServer("Data Source=DESKTOP-VAOFU4A;Initial Catalog=ForumApi;Integrated Security=True").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+
+            var appSettingSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingSection);
+
+            var appSettings = appSettingSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            services.AddAuthentication(x=>{
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x=>{
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters{
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
+            services.AddDbContext<AppDbContext>(options=>options.UseSqlServer(Configuration.GetSection("connectionString").
+                GetSection("connectionString").Value).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+            //"Data Source=DESKTOP-VAOFU4A;Initial Catalog=ForumApi;Integrated Security=True"
             services.AddAutoMapper(typeof(Startup));
             
             //services.AddTransient<DbContext,AppDbContext>();
@@ -66,6 +96,7 @@ namespace ForumApi
             services.AddScoped<IUser_Info_Service,User_Info_Service>();
             services.AddScoped<IUser_Role_Service,User_Role_Service>();
             services.AddScoped<IUser_Service,User_Service>();
+            services.AddScoped<IAuth_Service,Auth_Service>();
 
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -78,7 +109,7 @@ namespace ForumApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -10,6 +10,8 @@ using ForumApi.Domain.Models;
 using ForumApi.Domain.IServices;
 using ForumApi.Resources;
 using ForumApi.Helpers;
+using Microsoft.AspNetCore.Authorization;
+
 namespace ForumApi.Controllers
 {
     [ApiController]
@@ -24,6 +26,7 @@ namespace ForumApi.Controllers
             this.mapper = mapper;
         }
         [HttpGet]
+        [Authorize(Roles="Admin")]
         public async Task<IEnumerable<User_Resource>> GetAllAsync(){
             var users = await userService.GetAllAsync();
             var resource = mapper.Map<IEnumerable<User>, IEnumerable<User_Resource>>(users);

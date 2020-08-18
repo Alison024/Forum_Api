@@ -1,0 +1,24 @@
+POST localhost:5001/api/auth/authenticate
+Content-Type: application/json
+
+{
+    "Email":"someE@gmail.com",
+    "Password":"123123"
+}
+###
+//Pikachu2000
+POST localhost:5001/api/auth/authenticate
+Content-Type: application/json
+
+{
+    "User_Name":"Pikachu2000",
+    "Password":"123123"
+}
+###
+POST localhost:5001/api/auth/authenticate
+Content-Type: application/json
+
+{
+    "Email":"Pikachu2000",
+    "Password":"123123"
+}

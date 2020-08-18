@@ -14,7 +14,7 @@ namespace ForumApi.Domain.Models
         public string Password{get;set;}
         public string Phone_Number{get;set;}
         public DateTime Birthday{get;set;}
-
+        public string Token{get;set;}
         public Avatar_image Avatar_Image{get;set;}
 
         //public IList<User_info> User_Info{get;set;} = new List<User_info>();
