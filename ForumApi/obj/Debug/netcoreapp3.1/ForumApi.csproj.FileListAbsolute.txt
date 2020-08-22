@@ -64,3 +64,7 @@ D:\Projects\Web_Exam\web_api\Forum_Api\ForumApi\bin\Debug\netcoreapp3.1\Microsof
 D:\Projects\Web_Exam\web_api\Forum_Api\ForumApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Projects\Web_Exam\web_api\Forum_Api\ForumApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 D:\Projects\Web_Exam\web_api\Forum_Api\ForumApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\Web_Exam\web_api\Forum_Api\ForumApi\bin\Debug\netcoreapp3.1\System.Web.Cors.dll
+D:\Projects\Web_Exam\web_api\Forum_Api\ForumApi\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Projects\Web_Exam\web_api\Forum_Api\ForumApi\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+D:\Projects\Web_Exam\web_api\Forum_Api\ForumApi\bin\Debug\netcoreapp3.1\System.Web.Http.Cors.dll

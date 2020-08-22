@@ -9,3 +9,24 @@ Content-Type: application/json
 GET https://localhost:5001/api/post
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIiwiVXNlciJdLCJlbWFpbCI6InNvbWVFQGdtYWlsLmNvbSIsIm5iZiI6MTU5ODEwMTkwNywiZXhwIjoxNTk4MTAyMjA3LCJpYXQiOjE1OTgxMDE5MDd9.EtdVjbJwTlgF_XplWsJUUp9sKUShKn5z8mqdqkjHn9k
 ###
+POST https://localhost:5001/api/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIiwiVXNlciJdLCJlbWFpbCI6InNvbWVFQGdtYWlsLmNvbSIsIm5iZiI6MTU5ODEwMzQ3NCwiZXhwIjoxNTk4MTAzNzc0LCJpYXQiOjE1OTgxMDM0NzR9.D01p15nnJo-wTiCTu-wvngSLN-LVEv6acBl0jg3XS7c
+Content-Type: application/json
+
+{
+    "Author_Id":1,
+    "Post_Type_Id":5,
+    "Title":"Never gonna give you up!",
+    "Post_Content":"I hope this authorization will work fine )))",
+    "Date":"2020-08-22T19:30:00",
+    "Post_Rate":1,
+    "Post_Images":[
+        {
+            "Image_Id":2,
+            "Post_Id":8
+        },{
+            "Image_Id":3,
+            "Post_Id":8
+        }
+    ]
+}

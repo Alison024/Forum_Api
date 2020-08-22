@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -28,6 +29,7 @@ namespace ForumApi
 {
     public class Startup
     {
+        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -37,6 +39,25 @@ namespace ForumApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(
+                /*options =>{
+                    options.AddPolicy(name: MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000/")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+                }*/
+                options=>{
+                    options.AddDefaultPolicy(
+                        builder=>{
+                            builder.WithOrigins("http://localhost:3000");
+                        }
+                    );
+                }
+            );
+            
             services.AddControllers();
             services.AddControllers().AddNewtonsoftJson();
 
@@ -98,6 +119,12 @@ namespace ForumApi
             services.AddScoped<IUser_Service,User_Service>();
             services.AddScoped<IAuth_Service,Auth_Service>();
 
+
+            /*services.AddCors(c =>  
+            {  
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());  
+            });*/
+
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -109,13 +136,16 @@ namespace ForumApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            //app.UseCors(MyAllowSpecificOrigins); //options => options.AllowAnyOrigin()
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            
         }
     }
 }

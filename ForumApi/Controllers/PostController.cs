@@ -1,3 +1,4 @@
+using System.Runtime.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,14 @@ using ForumApi.Domain.IServices;
 using ForumApi.Resources;
 using ForumApi.Helpers;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
+//using Microsoft.AspNetCore.Mvc;
 
 namespace ForumApi.Controllers
 {
     [ApiController]
     [Route("api/post")]
+    /*[EnableCors("AllowOrigin")]*/
     public class PostController: ControllerBase
     {
         private readonly IPost_Service post_Service;
@@ -24,11 +28,12 @@ namespace ForumApi.Controllers
             this.post_Service = post_Service;
             this.mapper = mapper;
         }
-        [AllowAnonymous]
+        
         [HttpGet]
         public async Task<IEnumerable<Post_Resource>> GetAllAsync(){
             var posts = await post_Service.GetAllAsync();
             var resource = mapper.Map<IEnumerable<Post>, IEnumerable<Post_Resource>>(posts);
+            //Object result = 
             return resource;
         }
         [Authorize]
