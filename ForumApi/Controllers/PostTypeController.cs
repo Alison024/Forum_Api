@@ -9,6 +9,7 @@ using ForumApi.Domain.Models;
 using ForumApi.Domain.IServices;
 using ForumApi.Resources;
 using ForumApi.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ForumApi.Controllers
 {
@@ -29,7 +30,7 @@ namespace ForumApi.Controllers
             var resource = mapper.Map<IEnumerable<Post_type>, IEnumerable<Post_Type_Resource>>(posts);
             return resource;
         }
-
+        [Authorize(Roles="Admin")]
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] Post_Type_Resource resource)
         {
@@ -45,7 +46,7 @@ namespace ForumApi.Controllers
             var post_Type_Resource = mapper.Map<Post_type, Post_Type_Resource>(result.post_Type);
             return Ok(post_Type_Resource);
         }
-
+        [Authorize(Roles="Admin")]
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] Post_Type_Resource resource)
         {
@@ -61,7 +62,7 @@ namespace ForumApi.Controllers
             var post_Type_Resource = mapper.Map<Post_type, Post_Type_Resource>(result.post_Type);
             return Ok(post_Type_Resource);
         }
-
+        [Authorize(Roles="Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

@@ -6,19 +6,6 @@ Content-Type: application/json
     "Password":"123123"
 }
 ###
-//Pikachu2000
-POST localhost:5001/api/auth/authenticate
-Content-Type: application/json
-
-{
-    "User_Name":"Pikachu2000",
-    "Password":"123123"
-}
+GET https://localhost:5001/api/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIiwiVXNlciJdLCJlbWFpbCI6InNvbWVFQGdtYWlsLmNvbSIsIm5iZiI6MTU5ODEwMTkwNywiZXhwIjoxNTk4MTAyMjA3LCJpYXQiOjE1OTgxMDE5MDd9.EtdVjbJwTlgF_XplWsJUUp9sKUShKn5z8mqdqkjHn9k
 ###
-POST localhost:5001/api/auth/authenticate
-Content-Type: application/json
-
-{
-    "Email":"Pikachu2000",
-    "Password":"123123"
-}

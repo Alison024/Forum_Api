@@ -9,6 +9,8 @@ using ForumApi.Domain.Models;
 using ForumApi.Domain.IServices;
 using ForumApi.Resources;
 using ForumApi.Helpers;
+using Microsoft.AspNetCore.Authorization;
+
 namespace ForumApi.Controllers
 {
     [ApiController]
@@ -22,25 +24,28 @@ namespace ForumApi.Controllers
             this.user_Role_Service = user_Role_Service;
             this.mapper = mapper;
         }
+        
         [HttpGet]
         public async Task<IEnumerable<User_Role_Resource>> GetAllAsync(){
             var user_Roles = await user_Role_Service.GetAllAsync();
             var resource = mapper.Map<IEnumerable<User_role>, IEnumerable<User_Role_Resource>>(user_Roles);
             return resource;
         }
+        [Authorize]
         [HttpGet("GetRolesOfUser/{id}")]
         public async Task<IEnumerable<User_Role_Resource>> GetRolesOfUser(int id){
             var user_Roles = await user_Role_Service.GetRolesOfUser(id);
             var resource = mapper.Map<IEnumerable<User_role>, IEnumerable<User_Role_Resource>>(user_Roles);
             return resource;
         }
+        [Authorize]
         [HttpGet("GetUsersWithRole/{id}")]
         public async Task<IEnumerable<User_Role_Resource>> GetUsersWithRole(int id){
             var user_Roles = await user_Role_Service.GetUsersWithRole(id);
             var resource = mapper.Map<IEnumerable<User_role>, IEnumerable<User_Role_Resource>>(user_Roles);
             return resource;
         }
-
+        [Authorize(Roles="Admin")]
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] User_Role_Resource resource)
         {
@@ -72,7 +77,7 @@ namespace ForumApi.Controllers
             var post_Resource = mapper.Map<Post, Post_Resource>(result.post);
             return Ok(post_Resource);
         }*/
-
+        [Authorize(Roles="Admin")]
         [HttpDelete]
         public async Task<IActionResult> DeleteAsync(User_Role_Resource resource)
         {

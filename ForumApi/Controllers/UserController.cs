@@ -26,13 +26,11 @@ namespace ForumApi.Controllers
             this.mapper = mapper;
         }
         [HttpGet]
-        [Authorize(Roles="Admin")]
         public async Task<IEnumerable<User_Resource>> GetAllAsync(){
             var users = await userService.GetAllAsync();
             var resource = mapper.Map<IEnumerable<User>, IEnumerable<User_Resource>>(users);
             return resource;
         }
-
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] Register_User_Resource resource)
         {
@@ -49,7 +47,7 @@ namespace ForumApi.Controllers
             var userResource = mapper.Map<User, User_Resource>(result.user);
             return Ok(userResource);
         }
-
+        [Authorize]
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] User_Resource resource)
         {
@@ -65,7 +63,7 @@ namespace ForumApi.Controllers
             var userResource = mapper.Map<User, User_Resource>(result.user);
             return Ok(userResource);
         }
-
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

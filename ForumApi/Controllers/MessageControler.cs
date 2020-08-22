@@ -9,6 +9,7 @@ using ForumApi.Domain.Models;
 using ForumApi.Domain.IServices;
 using ForumApi.Resources;
 using ForumApi.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ForumApi.Controllers
 {
@@ -23,13 +24,14 @@ namespace ForumApi.Controllers
             this.message_Service = message_Service;
             this.mapper = mapper;
         }
+        [Authorize]
         [HttpGet]
         public async Task<IEnumerable<Message_Resource>> GetAllAsync(){
             var messages = await message_Service.GetAllAsync();
             var resource = mapper.Map<IEnumerable<Message>, IEnumerable<Message_Resource>>(messages);
             return resource;
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] Message_Resource resource)
         {
@@ -45,7 +47,7 @@ namespace ForumApi.Controllers
             var message_Resource = mapper.Map<Message, Message_Resource>(result.message);
             return Ok(message_Resource);
         }
-
+        [Authorize]
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] Message_Resource resource)
         {
@@ -61,7 +63,7 @@ namespace ForumApi.Controllers
             var message_Resource = mapper.Map<Message, Message_Resource>(result.message);
             return Ok(message_Resource);
         }
-
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

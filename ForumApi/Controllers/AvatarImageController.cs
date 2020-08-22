@@ -9,6 +9,7 @@ using ForumApi.Domain.Models;
 using ForumApi.Domain.IServices;
 using ForumApi.Resources;
 using ForumApi.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ForumApi.Controllers
 {
@@ -29,7 +30,7 @@ namespace ForumApi.Controllers
             var resource = mapper.Map<IEnumerable<Avatar_image>, IEnumerable<Avatar_Image_Resource>>(avatar_Images);
             return resource;
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] Avatar_Image_Resource resource)
         {
@@ -45,7 +46,7 @@ namespace ForumApi.Controllers
             var avatar_Image_Resource = mapper.Map<Avatar_image, Avatar_Image_Resource>(result.Avatar_Image);
             return Ok(avatar_Image_Resource);
         }
-
+        [Authorize]
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody] Avatar_Image_Resource resource)
         {
@@ -61,7 +62,7 @@ namespace ForumApi.Controllers
             var avatar_Image_Resource = mapper.Map<Avatar_image, Avatar_Image_Resource>(result.Avatar_Image);
             return Ok(avatar_Image_Resource);
         }
-
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
