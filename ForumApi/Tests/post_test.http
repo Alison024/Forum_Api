@@ -1,5 +1,7 @@
 GET https://localhost:5001/api/post
 ###
+GET https://localhost:5001/api/post/getUserById/1
+###
 POST https://localhost:5001/api/post
 Content-Type: application/json
 

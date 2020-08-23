@@ -36,6 +36,17 @@ namespace ForumApi.Controllers
             //Object result = 
             return resource;
         }
+
+        [HttpGet("getUserById/{id}")]
+        public async Task<Post_Resource> GetUserById(int id){
+            var posts = await post_Service.GetAllAsync();
+            var post = posts.SingleOrDefault(x=>x.Id==id);
+            
+            var resource = mapper.Map<Post, Post_Resource>(post);
+            //Object result = 
+            return resource;
+        }
+
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] Post_Resource resource)
