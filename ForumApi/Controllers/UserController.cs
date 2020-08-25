@@ -31,6 +31,13 @@ namespace ForumApi.Controllers
             var resource = mapper.Map<IEnumerable<User>, IEnumerable<User_Resource>>(users);
             return resource;
         }
+        [HttpGet("getUserById/{id}")]
+        public async Task<User_Resource> GetUserById(int id){
+            var users = await userService.GetAllAsync();
+            var user = users.SingleOrDefault(x=>x.Id==id);
+            var resource = mapper.Map<User,User_Resource>(user);
+            return resource;
+        }
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] Register_User_Resource resource)
         {

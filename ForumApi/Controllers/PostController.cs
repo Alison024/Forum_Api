@@ -37,8 +37,8 @@ namespace ForumApi.Controllers
             return resource;
         }
 
-        [HttpGet("getUserById/{id}")]
-        public async Task<Post_Resource> GetUserById(int id){
+        [HttpGet("getPostById/{id}")]
+        public async Task<Post_Resource> getPostById(int id){
             var posts = await post_Service.GetAllAsync();
             var post = posts.SingleOrDefault(x=>x.Id==id);
             
